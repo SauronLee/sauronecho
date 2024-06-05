@@ -1,0 +1,8 @@
+vat:
+  name: vat
+  description: Posts about value added taxes
+  cover: assets/images/banner.png  # TODO: Make this the default.
+us:
+  name: us
+  description: Posts about the United States of America
+  cover: assets/images/banner.png  # TODO: Make this the default.

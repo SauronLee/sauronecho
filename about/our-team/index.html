@@ -1,0 +1,69 @@
+---
+layout: page
+current: page
+navigation: True
+title: Our team
+date: 
+tags:
+class: page-template
+subclass: 'page'
+---
+
+
+<style type="text/css">
+  .container {
+    display: flex; /** set the container as flexbox **/
+    align-items: center; /** align all items vertically **/
+    /*width: 200px;*/
+    margin-bottom: 10px;
+    /*border: 1px solid red;*/
+  }
+
+  .text-container {
+    margin-left: 50px;
+  }
+/* } */
+
+</style>
+
+{% for author in site.data.authors %}
+ {% if author[1].is_active %}
+  <div class="site-header-content">
+    <div class="team-page">
+      <div class="container">
+        {% if author[1].picture %}
+          <img class="author-profile-image" src="{{ site.baseurl }}{{ author[1].picture }}" alt="{{ author[1].name }}" />
+        {% endif %}
+        <div class="text-container">
+          <h4 class="author-name"><a href="{{ site.baseurl }}author/{{ author[1].username }}">{{ author[1].name }}</a></h4>
+          {% if author[1].title %}
+            <h4 class="author-bio"><b>{{ author[1].title }}</b></h2>
+          {% endif %}
+          {% if author[1].bio %}
+            <h2 class="author-bio">{{ author[1].bio }}</h2>
+          {% endif %}
+          <div class="author-meta">
+            {% if author[1].location %}
+                <div class="author-location">{{ author[1].location }}</div>
+                <span class="bull">&bull;</span>
+            {% endif %}
+            <div class="author-stats" id="author-links">
+              <!-- {% if paginator.total_posts == 0 %}No posts{% elsif paginator.total_posts == 1 %}1 post{% else %}{{ paginator.total_posts }} posts{% endif %} 
+              {% if author[1].github %}
+                <span class="bull">&bull;</span> -->
+                <a class="social-link social-link-gh" href="https://github.com/{{ author[1].github }}" target="_blank" rel="noopener">GitHub</a>  
+              {% endif %}
+              {% if author[1].twitter %}
+                  <span class="bull">&bull;</span>
+                  <a class="social-link social-link-tw" href="https://twitter.com/{{ author[1].twitter }}" target="_blank" rel="noopener">Twitter</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+
+<center><b>Want to join us? Find out more <a href="{{site.baseurl}}about/join">here</a></b></center>
