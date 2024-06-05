@@ -22,12 +22,12 @@ jobs:
       - uses: jeffreytse/jekyll-deploy-action@master
         with:
           provider: 'github'
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.SAURONECHO_WEB_ACTIONS }}
           repository: ''
           branch: 'gh-pages'
           jekyll_src: './'
           jekyll_cfg: '_config.yml'
           jekyll_baseurl: ''
           bundler_ver: '>=0'
-          cname: 'www.ubicenter.org'
+          cname: ''
           actor: ''
